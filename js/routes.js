@@ -16,6 +16,7 @@ const myRoutes = [
         //             component:
         //     }
         // ]
+
     },
     {
         path: '/notes',

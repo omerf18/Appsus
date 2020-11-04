@@ -1,7 +1,7 @@
 export default {
     props:['email'],
     template: `
-        <section class="email-preview">
+        <section class="email-preview flex justify-space-between align-center">
            <h3>{{email.name}}</h3>
            <h4>{{email.subject}}</h4>
            <small>{{email.body}}</small>

@@ -4,17 +4,23 @@ export default {
     <section>
         
     <div class="note-header flex">
-       <input type="text" class="note-input" placeholder="Take a note..">
-       <label class="note-type btn" for="txt">txt</label>
-       <input type="radio" value="txt" id="txt" v-show="showNoteType" v-model="noteType">
-       <label class="note-type btn" for="img">img</label>
-       <input type="radio" value="img" id="img" v-show="showNoteType" v-model="noteType">
-       <label class="note-type btn" for="todo">todo</label>
-       <input type="radio" value="todo" id="todo" v-show="showNoteType" v-model="noteType">
-       <label class="note-type btn" for="video">video</label>
-       <input type="radio" value="video"id="video" v-show="showNoteType" v-model="noteType">
+        <input type="text" class="note-input" placeholder="Take a note..">
+         <form @change=noteTypeSelect>
+        <label class="note-type btn" for="txt">txt
+       <input type="radio" value="txt" v-show="showNoteType" id="txt" v-model="noteType">
+       </label>
+       <label class="note-type btn" for="img">img
+       <input type="radio" value="img" v-show="showNoteType" id="img" v-model="noteType">
+       </label>
+       <label class="note-type btn" for="todo">todo
+       <input type="radio" value="todo" v-show="showNoteType" id="todo" v-model="noteType">
+       </label>
+       <label class="note-type btn" for="video">video
+       <input type="radio" value="video" v-show="showNoteType" id="video" v-model="noteType">
+       </label>
+        </form> 
     </div>
-
+    
     </section>
     `,
     data() {
@@ -22,6 +28,14 @@ export default {
             noteType: null,
             showNoteType: false
         }
+    },
+    methods: {
+        noteTypeSelect() {
+            this.$emit('noteTypeSelect', this.noteType);
+        }
+    },
+    created() {
+        this.noteType = 'txt';
     }
 
 }

@@ -8,7 +8,7 @@ const options = {
     template: `
     <section class ="main-layout">
      <sus-app-header class ="main-header flex"/>
-         <main class ="main-container">
+         <main class ="main-container container">
             <router-view></router-view>
          </main>
      <sus-app-footer class = "main-footer flex"/> 

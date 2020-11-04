@@ -1,7 +1,6 @@
-
 @import '../css/apps/email/email-app.css';
-@import "../css/apps/notes/notes-app.css";
-
+@import '../css/apps/notes/notes-app.css';
+@import './helpers.css';
 * {
     box-sizing: border-box;
 }
@@ -29,10 +28,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
+.container {
+    width: 90vw;
+    margin: 0 auto;
+}
+
 /* main-container  */
 
 .main-container {
-    width: 90vw;
     margin: 0 auto;
     background-color: #fafafa;
     margin: 0 auto;
@@ -46,30 +49,4 @@ h1, h2, h3, h4, h5, h6 {
     color: #fafafa;
     justify-content: center;
     padding: 20px;
-}
-
-/* helpers  */
-
-.flex {
-    display: flex;
-}
-
-.btn {
-    cursor: pointer;
-}
-
-.bgc1{
-    background-color: #9df3c4;
-} 
-
-.bgc2{
-    background-color: #b2dffb;
-}
-
-.bgc3{
-    background-color: #e7a4e4;
-}
-
-.bgc4{
-    background-color: #ffc55c;
 }

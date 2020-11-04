@@ -4,7 +4,7 @@
 }
 
 .note-input {
-    width: 100%;
+   flex-grow: 1;
     padding: 10px;
 }
 
@@ -16,6 +16,6 @@
     margin-left: 5px;
 }
 
-.note-type:not(:last-child) {
-    margin-right: 5px;
+.note-type:not(:last-of-type) {
+    margin-right: 5px; 
 }
