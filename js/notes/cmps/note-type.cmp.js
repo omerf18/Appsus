@@ -12,8 +12,8 @@ export default {
        <label class="note-type btn" for="img">img
        <input type="radio" value="img" v-show="showNoteType" id="img" v-model="noteType">
        </label>
-       <label class="note-type btn" for="todo">todo
-       <input type="radio" value="todo" v-show="showNoteType" id="todo" v-model="noteType">
+       <label class="note-type btn" for="todos">todos
+       <input type="radio" value="todos" v-show="showNoteType" id="todos" v-model="noteType">
        </label>
        <label class="note-type btn" for="video">video
        <input type="radio" value="video" v-show="showNoteType" id="video" v-model="noteType">

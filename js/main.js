@@ -9,7 +9,6 @@ const options = {
     <section class ="main-layout flex column">
      <sus-app-header class ="main-header flex"/>
          <main class ="main-container container flex-grow">
-         <!-- <main class ="main-container flex-grow"> -->
             <router-view></router-view>
          </main>
      <sus-app-footer class = "main-footer flex"/> 
