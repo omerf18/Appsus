@@ -5,12 +5,18 @@ const EMAILS_DB = 'emailsDB'
 
 export const emailService ={
     getEmails,
-    clearPeeked
+    clearPeeked,
+    sendNewEmail,
+    removeEmail,
+    getEmailById
 }
 
  function getEmails(){
         gEmails = loadFromStorage(EMAILS_DB);
-        if (!gEmails || !gEmails.length) gEmails = _createEmails()
+        if (!gEmails || !gEmails.length){
+            gEmails = _createEmails()
+            storeToStorage(EMAILS_DB,getEmails)
+        } 
         return Promise.resolve(gEmails);
  }
 function _createEmail(name,subject,body,sentAt){
@@ -20,7 +26,7 @@ function _createEmail(name,subject,body,sentAt){
         subject,
         body,
         sentAt,
-        // emailAd,
+        fromEmail: 'codingAcademy@code.com',
         isRead: false,
         isPeeked: false,
     }
@@ -33,8 +39,21 @@ function _createEmails(){
     emails.push(_createEmail('Yuki','Hello','Hi my name is Yuki',getTime()))
     emails.push(_createEmail('Tuki','Hello','Hi my name is Tuki',getTime()))
     return emails;
-
-
+}
+function sendNewEmail(email){
+    email.id = makeId();
+    email.name ='Me';
+    email.isRead = false;
+    email.sentAt = getTime();
+    email.isPeeked = false;
+    gEmails.unshift(email)
+    storeToStorage(EMAILS_DB,gEmails);
+    return Promise.resolve(email);
+}
+function removeEmail(emailId){
+    const emailIdx = gEmails.findIndex(email => email.id === emailId);
+    gEmails.splice(emailIdx, 1);
+    storeToStorage(EMAILS_DB,gEmails);
 }
 
 
@@ -61,4 +80,9 @@ function getTime(){
  function clearPeeked() {
     gEmails.forEach(mail => mail.isPeeked = false);
    storeToStorage(EMAILS_DB, gEmails);
+}
+function getEmailById(emailId){
+    console.log(emailId);
+    const emailEx = gEmails.find(email => email.id === emailId)
+    return Promise.resolve(emailEx)
 }

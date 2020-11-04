@@ -1,5 +1,6 @@
 
 import emailPreview from '../cmps/email-preview.cmp.js'
+import {emailService} from '../services/email-service.js'
 
 
 export default {
@@ -15,6 +16,9 @@ export default {
     `,
     data(){
         return{}
+
+    },
+    methods:{
 
     },
     components:{
