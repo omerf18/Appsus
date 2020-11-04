@@ -3,4 +3,11 @@
 
 @import './cmps/email-preview.cmp.css';
 @import './cmps/email-list.cmp.css';
-@import './email-nav.css'
+@import './cmps/email-compose.cmp.css';
+@import './email-nav.css';
+
+
+.email-app-main-content{
+    width: 100%;
+
+}

@@ -18,6 +18,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+/* layout */
+
+.main-layout {
+    height: 100vh;
+}
+
 /* header  */
 
 .main-header {
@@ -25,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     background-color: #005691;
     color: #fafafa;
-    padding: 20px;
+    padding: 15px;
 }
 
 .container {
@@ -48,5 +54,5 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #004a7c;
     color: #fafafa;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
