@@ -1,3 +1,5 @@
+@import "../css/apps/notes/notes-app.css";
+
 * {
     box-sizing: border-box;
 }
@@ -29,6 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-container {
     width: 90vw;
+    margin: 0 auto;
     background-color: #fafafa;
 }
 
@@ -45,6 +48,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .flex {
     display: flex;
+}
+
+.btn {
+    cursor: pointer;
 }
 
 .bgc1{
