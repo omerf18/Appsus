@@ -1,0 +1,21 @@
+.note-header {
+    justify-content: center;
+    align-items: center;
+}
+
+.note-input {
+    width: 100%;
+    padding: 10px;
+}
+
+.note-type {
+    padding: 10px 20px;
+}
+
+.note-type:first-of-type {
+    margin-left: 5px;
+}
+
+.note-type:not(:last-child) {
+    margin-right: 5px;
+}
