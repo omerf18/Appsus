@@ -17,10 +17,10 @@ const myRoutes = [
             //     }
             // ]
     },
-    {
-        path: '/notes',
-        component: note
-    }
+    // {
+    //     path: '/notes',
+    //     component: note
+    // }
 ];
 
 export const myRouter = new VueRouter({ routes: myRoutes });

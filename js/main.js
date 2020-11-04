@@ -11,7 +11,7 @@ const options = {
          <main class ="main-container">
             <router-view></router-view>
          </main>
-     <sus-app-footer class = "main-footer flex"/> -->
+     <sus-app-footer class = "main-footer flex"/> 
     </section>
     `,
     components: {
