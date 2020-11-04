@@ -4,7 +4,7 @@ import about from '../js/pages/about.js';
 import bookDetails from '../js/pages/book-details.js';
 
 const myRoutes = [
-    {
+    {sdjfhiosdfj
         path: '/book',
         component: bookApp
     },
