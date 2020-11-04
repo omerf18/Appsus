@@ -2,6 +2,63 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 body {
     margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* header  */
+
+.main-header {
+    justify-content: space-between;
+    align-items: center;
+    background-color: #005691;
+    color: #fafafa;
+    padding: 20px;
+}
+
+/* main-container  */
+
+.main-container {
+    width: 90vw;
+    background-color: #fafafa;
+}
+
+/* main-footer  */
+
+.main-footer {
+    background-color: #004a7c;
+    color: #fafafa;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* helpers  */
+
+.flex {
+    display: flex;
+}
+
+.bgc1{
+    background-color: #9df3c4;
+} 
+
+.bgc2{
+    background-color: #b2dffb;
+}
+
+.bgc3{
+    background-color: #e7a4e4;
+}
+
+.bgc4{
+    background-color: #ffc55c;
 }
