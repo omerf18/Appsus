@@ -6,7 +6,7 @@ const options = {
     el: '#susApp',
     router: myRouter,
     template: `
-    <section>
+    <section class ="main-layout">
      <sus-app-header class ="main-header flex"/>
          <main class ="main-container">
             <router-view></router-view>
