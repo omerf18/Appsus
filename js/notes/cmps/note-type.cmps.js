@@ -1,4 +1,5 @@
 export default {
+    name: 'noteType',
     template: `
     <section>
         
@@ -24,3 +25,5 @@ export default {
     }
 
 }
+
+

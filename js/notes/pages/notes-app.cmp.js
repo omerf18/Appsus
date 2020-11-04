@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export default {}
-=======
 import noteType from '../cmps/note-type.cmps.js'
 
 export default {
@@ -20,4 +17,3 @@ export default {
     }
 }
 
->>>>>>> 785e0369a516746e141be545735f38bd8919c6c6
