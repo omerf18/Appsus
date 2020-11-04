@@ -4,7 +4,8 @@ var gEmails;
 const EMAILS_DB = 'emailsDB'
 
 export const emailService ={
-    getEmails
+    getEmails,
+    clearPeeked
 }
 
  function getEmails(){
@@ -18,8 +19,10 @@ function _createEmail(name,subject,body,sentAt){
         name,
         subject,
         body,
-        isRead: Math.random() > 0.5,
-        sentAt
+        sentAt,
+        // emailAd,
+        isRead: false,
+        isPeeked: false,
     }
     return email
 }
@@ -55,3 +58,7 @@ function makeId(length = 8) {
 function getTime(){
     return new Date().toLocaleTimeString()
  }
+ function clearPeeked() {
+    gEmails.forEach(mail => mail.isPeeked = false);
+   storeToStorage(EMAILS_DB, gEmails);
+}

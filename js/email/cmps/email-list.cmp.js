@@ -7,11 +7,9 @@ export default {
     props: ['emails'],
 
     template: `
-    <section class="emails-list  ">
+    <section class="emails-list flex-grow">
             <ul >
-                <li v-for="email in emails" :key="emails.id"  >
-                   <email-preview :email="email"/>
-                </li>
+                   <email-preview  v-for="email in emails" :key="emails.id"  :email="email"/>
             </ul>
     </section> 
     `,

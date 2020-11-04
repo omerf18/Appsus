@@ -1,24 +1,32 @@
+import emailPeek from './email-peek.cmp.js'
+
 export default {
     props:['email'],
     template: `
-        <section class="email-preview flex justify-space-between align-center">
-           <h3>{{email.name}}</h3>
-           <h4>{{email.subject}}</h4>
-           <small>{{email.body}}</small>
-           <p>{{email.sentAt}}</p>
+        <section @click="openEmailPeek" class="email-preview flex column  ">
+            <li class= "flex space-between align-center flex-grow btn">  
+                <h3>{{email.name}}</h3>
+                <h4>{{email.subject}}</h4>
+                <small>{{email.body}}</small>
+                <p>{{email.sentAt}}</p>
+            </li>
+           <email-peek v-if="email.isPeeked" :email="email"> </email-peek>
         </section>
         
         
     `,
     data(){
         return{
-        currencyCode:''
+        
 
         }
 
 
     },
     methods:{
+        openEmailPeek(){
+            this.email.isPeeked = !this.email.isPeeked
+        }
         
     },
 
@@ -27,5 +35,9 @@ export default {
            return this.book.listPrice.currencyCode
         }
      
+    },
+    components:{
+        emailPeek
     }
+
 }

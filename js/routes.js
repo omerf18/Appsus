@@ -7,7 +7,7 @@ const myRoutes = [
         path: '/',
         component: home
     },
-   {
+     {
         path: '/email',
         component: email,
             // children:[
