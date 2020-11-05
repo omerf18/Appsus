@@ -3,5 +3,37 @@
 
 .email-nav{
 flex-direction: column;
+margin-right: 50px;
+}
 
+
+.email-nav>*{
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: rgb(29, 28, 28);
+    cursor: pointer;
+    background-color:rgb(235, 227, 227);
+
+}
+
+.compose-ctr{
+    display:flex;
+    text-decoration: none;
+     align-items: center; 
+     color: rgb(29, 28, 28);
+     border-radius: 20px;
+     border: 1px solid rgb(29, 28, 28); 
+     padding: 0 10px; 
+     margin-bottom: 10px;
+     background-color: rgb(235, 227, 227);
+}
+.compose-ctr:hover{
+    background-color: #b2dffb;
+}
+.folder-btn{
+    border-radius: 0 20px  20px 0 ;
+    padding: 0 10px; 
+}
+.folder-btn:hover{
+    background-color: #b2dffb;
 }

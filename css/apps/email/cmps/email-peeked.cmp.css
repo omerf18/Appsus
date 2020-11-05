@@ -1,0 +1,23 @@
+.email-peek{
+   background-color: #b2dffb;
+   border-radius: 0  0 10px 10px;
+   padding: 10px;
+}
+.peek-header{
+    width: 100%;
+    display: inline-flex
+}
+
+
+.from-email{
+    color: #b8d31f;
+    margin-left: 20px;
+   
+} 
+.peek-body{
+margin: 0;
+padding: 20px;
+}
+.peek-from{
+    margin: 0;
+}

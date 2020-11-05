@@ -10,6 +10,7 @@ export default {
                 <small>{{email.body}}</small>
                 <p>{{email.sentAt}}</p>
             </li>
+          
            <email-peek v-if="email.isPeeked" :email="email"> </email-peek>
         </section>
         
