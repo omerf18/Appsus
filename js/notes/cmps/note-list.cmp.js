@@ -9,11 +9,14 @@ export default {
     template: `
             <ul class="notes-list flex row">
                    <li v-for="note in notes" :key="note.id">
-                        <component :note="note" :is="note.type" @editNote="noteToEdit"> </component>
+                        <component :note="note" :is="note.type" @editNote="noteToEdit" @removeNote="noteToRemove"> </component>
                    </li>
             </ul>
     `,
     methods: {
+        noteToRemove(noteId) {
+            this.$emit('removeNote',noteId);
+        },
         noteToEdit() {
             this.$emit('editNote');
         }

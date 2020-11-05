@@ -7,7 +7,7 @@ export default {
     template: `
     <section>
     <note-type @createNewNote="addNote"/>
-    <note-list v-if="notes" @editNote="noteToEdit" :notes='notes'/>
+    <note-list v-if="notes" @editNote="noteToEdit" @removeNote="noteToRemove" :notes='notes'/>
     </section>
     `,
     data() {
@@ -18,6 +18,9 @@ export default {
     methods: {
         addNote(type, info) {
             noteService.createNote(type, info);
+        },
+        noteToRemove(noteId) {
+            noteService.removeNote(noteId);
         },
         noteToEdit() {
             noteService.editNote();

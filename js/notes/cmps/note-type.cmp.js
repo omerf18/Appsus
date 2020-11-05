@@ -3,7 +3,7 @@ export default {
     template: `
     <section>
        <div class="note-header flex">
-       <input type="text" class="note-input" v-model="noteInput" @change=newNote placeholder="Take a note..">
+       <input type="text" class="note-input" v-model="noteInput" @change=newNote :placeholder="placeholderVal">
 
        <form>
        <label class="note-type btn" for="txt"> <i class="far fa-comment-alt icon"></i>
@@ -26,18 +26,19 @@ export default {
         return {
             noteType: null,
             showNoteType: false,
-            noteInput: null
+            noteInput: null,
+            placeholderVal: null
         }
     },
     methods: {
         newNote() {
             this.$emit('createNewNote', this.noteType, this.noteInput);
         },
+
     },
     created() {
         this.noteType = 'noteTxt';
+        this.placeholderVal = 'noteTxt';
     }
 
 }
-
-

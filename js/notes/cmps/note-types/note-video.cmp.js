@@ -11,15 +11,18 @@ export default {
             <div id="ytplayer"></div>
             <div class="flex space-between">
                 <i class="fas fa-brush icon"></i>
-                <i class="fas fa-trash-alt icon"></i>
+                <i class="fas fa-trash-alt icon" @click="remove(note.id)"></i>
                 <i class="note-pin fas fa-thumbtack icon"></i>
             </div>
         </div>
     </section>
   `,
     methods: {
+        remove(noteId) {
+            this.$emit('removeNote', noteId);
+        },
         edit() {
-            this.$emit('editNote')
+            this.$emit('editNote');
         }
     }
 }
