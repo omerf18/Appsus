@@ -8,7 +8,8 @@ export const emailService ={
     clearPeeked,
     sendNewEmail,
     removeEmail,
-    getEmailById
+    getEmailById,
+    getUnreadCount
 }
 
  function getEmails(){
@@ -19,6 +20,17 @@ export const emailService ={
         } 
         return Promise.resolve(gEmails);
  }
+
+ function getUnreadCount() {
+    var count = 0;
+    gEmails.forEach(email => {
+        if (!email.isRead ) count++
+    })
+    return count;
+}
+
+
+
 function _createEmail(name,subject,body,sentAt){
     const email = {
         id : makeId(),
@@ -29,6 +41,8 @@ function _createEmail(name,subject,body,sentAt){
         fromEmail: 'codingAcademy@code.com',
         isRead: false,
         isPeeked: false,
+        isStared: false,
+        isSent: false
     }
     return email
 }
@@ -44,6 +58,7 @@ function sendNewEmail(email){
     email.id = makeId();
     email.name ='Me';
     email.isRead = false;
+    email.isSent = true
     email.sentAt = getTime();
     email.isPeeked = false;
     gEmails.unshift(email)
