@@ -29,7 +29,7 @@
     padding: 10px;
     line-height: 1.5;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 2px solid #004a7c;
     box-shadow: 1px 1px 1px #999;
     position: relative;
 }
@@ -40,11 +40,13 @@
     text-decoration: underline;
     font-weight: 500;
     font-size: 1.05rem;
+    background-color:#ff7f5000;
 }
 
 .note-txt {
     border: none;
     overflow: auto;
+    background-color:#ff7f5000;
 }
 
 .note-img {
@@ -55,8 +57,6 @@
 
 .note-pin {
     position: absolute;
-    padding: 10px;
-    background-color: brown;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
 }

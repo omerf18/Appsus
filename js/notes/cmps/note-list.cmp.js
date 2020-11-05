@@ -15,7 +15,7 @@ export default {
     `,
     methods: {
         noteToEdit() {
-            this.$emit('editNote')
+            this.$emit('editNote');
         }
     },
     components: {
