@@ -1,3 +1,6 @@
+@import './cmps/notes-list.cmp.css';
+@import './cmps/notes-preview.cmp.css';
+
 .note-header {
     justify-content: center;
     align-items: center;

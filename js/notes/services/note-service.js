@@ -1,5 +1,9 @@
-export const notesService = {
+import {utilService} from '../../services/util-service.js'
+var gNotes;
+const NOTES_DB ='notesDB'
 
+export const noteService = {
+   getNotes
 }
 
 
@@ -47,6 +51,64 @@ let notes = [
         }
     }
 ];
+
+//dennis
+ 
+function _createNotes() {
+ return  [
+    {
+        type: 'txt',
+        title: 'title',
+        isPinned: true,
+        info: 'text',
+        style: {
+            backgroundColor: ''
+        }
+    },
+    {
+        type: 'img',
+        title: 'title',
+        isPinned: true,
+        info: 'www.imgUrl.com',
+        style: {
+            backgroundColor: ''
+        }
+    },
+    {
+        type: 'todos',
+        title: 'title',
+        isPinned: true,
+        info: {
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ],
+        },
+        style: {
+            backgroundColor: ''
+        }
+
+    },
+    {
+        type: 'video',
+        title: 'title',
+        isPinned: true,
+        info: 'www.youtube.com',
+        style: {
+            backgroundColor: ''
+        }
+    }
+]; 
+} 
+function getNotes(){
+    gNotes = utilService.loadFromStorage(NOTES_DB);
+    if (!gNotes || !gNotes.length){
+        gNotes = _createNotes()
+        utilService.storeToStorage(NOTES_DB,gNotes)
+    } 
+    return Promise.resolve(gNotes);
+}
+//dennis
 
 const youtubeApi = 'AIzaSyBoLtEChz15MVeSaLwOi2dGrKfyVlBZkp0';
 

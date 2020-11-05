@@ -1,7 +1,7 @@
 
 import { emailService } from '../services/email-service.js'
 import emailList from '../cmps/email-list.cmp.js'
-// import emailCompose from './email-compose.cmp.js'
+import emailCompose from './email-compose.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailNav from '../cmps/email-nav.cmp.js'
 
@@ -16,7 +16,7 @@ export default {
             <email-nav></email-nav>
             <email-list :emails ="emails" ></email-list>
         </div>
-        <router-view />
+            <router-view></router-view>
     </section> 
     `,
     data() {
@@ -25,14 +25,15 @@ export default {
         }
     },
     created() {
+      
         emailService.getEmails()
             .then(emails => this.emails = emails)
             .then(emails => console.log(emails))
-
+         
     },
     components: {
         emailList,
-        // emailCompose,
+        emailCompose,
         emailFilter,
         emailNav
 
