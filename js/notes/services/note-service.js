@@ -1,154 +1,96 @@
-import {utilService} from '../../services/util-service.js'
-var gNotes;
-const NOTES_DB ='notesDB'
+import { utilService } from '../../services/util-service.js'
+const NOTES_DB = 'notesDB'
 
 export const noteService = {
-   getNotes
+    createNote,
+    getNotes,
+    editNote
 }
 
+var gNotes;
 
-let notes = [
-    {
-        type: 'txt',
-        title: 'title',
-        isPinned: true,
-        info: 'text',
-        style: {
-            backgroundColor: ''
-        }
-    },
-    {
-        type: 'img',
-        title: 'title',
-        isPinned: true,
-        info: 'www.imgUrl.com',
-        style: {
-            backgroundColor: ''
-        }
-    },
-    {
-        type: 'todos',
-        title: 'title',
-        isPinned: true,
-        info: {
-            todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
-            ],
-        },
-        style: {
-            backgroundColor: ''
-        }
+function editNote() {
+    utilService.storeToStorage(NOTES_DB,gNotes)
+}
 
-    },
-    {
-        type: 'video',
-        title: 'title',
-        isPinned: true,
-        info: 'www.youtube.com',
-        style: {
-            backgroundColor: ''
-        }
-    }
-];
+function _getNoteById(id) {
+    let note =  gNotes.find(note => note.id === id)
+    return note;
+}
 
-//dennis
- 
-function _createNotes() {
- return  [
-    {
-        type: 'txt',
-        title: 'title',
-        isPinned: true,
-        info: 'text',
-        style: {
-            backgroundColor: ''
-        }
-    },
-    {
-        type: 'img',
-        title: 'title',
-        isPinned: true,
-        info: 'www.imgUrl.com',
-        style: {
-            backgroundColor: ''
-        }
-    },
-    {
-        type: 'todos',
-        title: 'title',
-        isPinned: true,
-        info: {
-            todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
-            ],
-        },
-        style: {
-            backgroundColor: ''
-        }
-
-    },
-    {
-        type: 'video',
-        title: 'title',
-        isPinned: true,
-        info: 'www.youtube.com',
-        style: {
-            backgroundColor: ''
-        }
-    }
-]; 
-} 
-function getNotes(){
-    gNotes = utilService.loadFromStorage(NOTES_DB);
-    if (!gNotes || !gNotes.length){
-        gNotes = _createNotes()
-        utilService.storeToStorage(NOTES_DB,gNotes)
-    } 
+function addNewNote(note) {
+    gNotes.unshift(note);
+    utilService.storeToStorage(NOTES_DB, gNotes);
     return Promise.resolve(gNotes);
 }
-//dennis
+
+function createNote(type, info) {
+    let note = {
+        id: utilService.makeId(),
+        type,
+        title: '',
+        info,
+        isPinned: false,
+        style: {
+            backgroundColor: ''
+        }
+    }
+    addNewNote(note);
+}
+
+function getNotes() {
+    gNotes = utilService.loadFromStorage(NOTES_DB);
+    if (!gNotes || !gNotes.length) gNotes = _createNotes();
+    return Promise.resolve(gNotes);
+}
+
+function _createNotes() {
+    return [
+        {
+            type: 'noteTxt',
+            title: '',
+            isPinned: true,
+            info: 'text',
+            style: {
+                backgroundColor: ''
+            }
+        },
+        {
+            type: 'noteImg',
+            title: '',
+            isPinned: true,
+            info: 'https://i.guim.co.uk/img/media/20098ae982d6b3ba4d70ede3ef9b8f79ab1205ce/0_0_969_581/master/969.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=a368f449b1cc1f37412c07a1bd901fb5',
+            style: {
+                backgroundColor: ''
+            }
+        },
+        {
+            type: 'noteTodos',
+            title: '',
+            isPinned: true,
+            info: {
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 }
+                ],
+            },
+            style: {
+                backgroundColor: ''
+            }
+
+        },
+        {
+            type: 'noteVideo',
+            title: '',
+            isPinned: true,
+            info: 'https://www.youtube.com/watch?v=hOVDNS0IvHc',
+            style: {
+                backgroundColor: ''
+            }
+        }
+    ];
+}
+
 
 const youtubeApi = 'AIzaSyBoLtEChz15MVeSaLwOi2dGrKfyVlBZkp0';
 
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'M7lc1UVf-VE',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }

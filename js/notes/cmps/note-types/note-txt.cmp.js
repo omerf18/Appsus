@@ -1,26 +1,21 @@
 export default {
+    props: ['note'],
     name: 'note-txt',
     template: `
     <section>
        <div class="note flex column">
-            <input class="note-title" type="text" maxlength="18" v-model="title">
-            <textarea class="note-txt" rows="12" cols="6" v-model="info"></textarea>
+            <input class="note-title btn" type="text" placeholder="Dont forget!" @change="edit()" v-model="note.title" maxlength="18">
+            <textarea class="note-txt btn" rows="12" cols="6" @change="edit(note.id)" v-model="note.info"></textarea>
             <div class="flex space-between">
-                <div class="note-bgc"> </div>
-                <div class="note-pin"> </div>
+                <div class="note-bgc btn"> </div>
+                <div class="note-pin btn"> </div>
             </div>
         </div>
     </section>
  `,
-    data() {
-        return {
-            type: 'txt',
-            title: 'title',
-            isPinned: true,
-            info: 'text',
-            style: {
-                backgroundColor: ''
-            }
+    methods: {
+        edit() {
+            this.$emit('editNote')
         }
     },
 }

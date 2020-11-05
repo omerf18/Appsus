@@ -2,40 +2,40 @@ export default {
     name: 'noteType',
     template: `
     <section>
-        
-    <div class="note-header flex">
-        <input type="text" class="note-input" placeholder="Take a note..">
-         <form @change=noteTypeSelect>
-        <label class="note-type btn" for="txt">txt
-       <input type="radio" value="txt" v-show="showNoteType" id="txt" v-model="noteType">
+       <div class="note-header flex">
+       <input type="text" class="note-input" v-model="noteInput" @change=newNote placeholder="Take a note..">
+
+       <form>
+       <label class="note-type btn" for="txt">txt
+       <input type="radio" value="noteTxt" v-show="showNoteType" id="txt" v-model="noteType">
        </label>
        <label class="note-type btn" for="img">img
-       <input type="radio" value="img" v-show="showNoteType" id="img" v-model="noteType">
+       <input type="radio" value="noteImg" v-show="showNoteType" id="img" v-model="noteType">
        </label>
        <label class="note-type btn" for="todos">todos
-       <input type="radio" value="todos" v-show="showNoteType" id="todos" v-model="noteType">
+       <input type="radio" value="noteTodos" v-show="showNoteType" id="todos" v-model="noteType">
        </label>
        <label class="note-type btn" for="video">video
-       <input type="radio" value="video" v-show="showNoteType" id="video" v-model="noteType">
+       <input type="radio" value="noteVideo" v-show="showNoteType" id="video" v-model="noteType">
        </label>
-        </form> 
+       </form> 
     </div>
-    
     </section>
     `,
     data() {
         return {
             noteType: null,
-            showNoteType: false
+            showNoteType: false,
+            noteInput: null
         }
     },
     methods: {
-        noteTypeSelect() {
-            this.$emit('noteTypeSelect', this.noteType);
-        }
+        newNote() {
+            this.$emit('createNewNote', this.noteType, this.noteInput);
+        },
     },
     created() {
-        this.noteType = 'txt';
+        this.noteType = 'noteTxt';
     }
 
 }
