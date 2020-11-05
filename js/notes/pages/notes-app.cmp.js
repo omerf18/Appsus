@@ -1,35 +1,36 @@
+import { noteService } from '../services/note-service.js'
 import noteType from '../cmps/note-type.cmp.js';
-import noteTxt from '../cmps/note-txt.cmp.js';
-import noteImg from '../cmps/note-img.cmp.js';
-import noteTodos from '../cmps/note-todos.cmp.js';
-import noteVideo from '../cmps/note-video.cmp.js';
+import noteList from '../cmps/note-list.cmp.js';
 
 export default {
+    name: 'app',
     template: `
     <section>
-    <note-type @noteTypeSelect="getNoteInput($event)"></note-type>
-    <note-txt/>
-    <note-img/>
-    <note-todos/>
-    <note-video/>
+    <note-type @createNewNote="addNote"/>
+    <note-list v-if="notes" @editNote="noteToEdit" :notes='notes'/>
     </section>
     `,
     data() {
         return {
-            noteType: null,
+            notes: null
         }
     },
     methods: {
-        getNoteInput(note) {
-            this.noteType = note;
+        addNote(type, info) {
+            noteService.createNote(type, info);
+        },
+        noteToEdit() {
+            noteService.editNote();
         }
+    },
+    created() {
+        noteService.getNotes()
+            .then(notes => {
+                this.notes = notes
+            })
     },
     components: {
         noteType,
-        noteTxt,
-        noteImg,
-        noteTodos,
-        noteVideo
+        noteList
     }
 }
-
