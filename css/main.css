@@ -12,6 +12,7 @@ html {
 
 body {
     margin: 0;
+    background-color: #fafafa;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 /* layout */
 
 .main-layout {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* header  */
@@ -43,7 +44,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-container {
     margin: 0 auto;
-    background-color: #fafafa;
     margin: 0 auto;
     flex: 1;
 }

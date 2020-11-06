@@ -1,10 +1,8 @@
 export default {
     name: 'noteType',
     template: `
-    <section>
-       <div class="note-header flex">
+    <section class="notes-header flex">
        <input type="text" class="note-input" v-model="noteInput" @change=newNote :placeholder="placeholderVal">
-
        <form @change=selectNote>
        <label class="note-type btn" for="txt"> <i class="far fa-comment-alt icon"></i>
        <input type="radio" value="noteTxt" v-show="showNoteType" id="txt" v-model="noteType">
@@ -19,7 +17,6 @@ export default {
        <input type="radio" value="noteVideo" v-show="showNoteType" id="video" v-model="noteType">
        </label>
        </form> 
-    </div>
     </section>
     `,
     data() {
