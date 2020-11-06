@@ -5,7 +5,7 @@ export default {
        <div class="note-header flex">
        <input type="text" class="note-input" v-model="noteInput" @change=newNote :placeholder="placeholderVal">
 
-       <form>
+       <form @change=selectNote>
        <label class="note-type btn" for="txt"> <i class="far fa-comment-alt icon"></i>
        <input type="radio" value="noteTxt" v-show="showNoteType" id="txt" v-model="noteType">
        </label>
@@ -34,11 +34,16 @@ export default {
         newNote() {
             this.$emit('createNewNote', this.noteType, this.noteInput);
         },
-
+        selectNote() {
+            if (this.noteType === 'noteTxt') this.placeholderVal = 'Whats on your mind..?';
+            else if (this.noteType === 'noteImg') this.placeholderVal = 'Enter image URL';
+            else if (this.noteType === 'noteTodos') this.placeholderVal = 'Enter comma sperated list';
+            else this.placeholderVal = 'Enter video URL';
+        }
     },
     created() {
         this.noteType = 'noteTxt';
-        this.placeholderVal = 'noteTxt';
+        this.placeholderVal = 'Whats on your mind..?';
     }
 
 }

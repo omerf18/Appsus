@@ -52,7 +52,18 @@
     flex-grow: 1;
 }
 
+.icon {
+    font-size: 25px;
+    color: #005691;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
 /* bgc helpers */
+
+.bgc0 {
+    background-color: #fafafa;
+}
 
 .bgc1 {
     background-color: #9df3c4;

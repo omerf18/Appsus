@@ -7,7 +7,7 @@ export default {
     template: `
     <section>
     <note-type @createNewNote="addNote"/>
-    <note-list v-if="notes" @editNote="noteToEdit" @removeNote="noteToRemove" :notes='notes'/>
+    <note-list v-if="notes" @colorNote="changeNoteColor" @editNote="noteToEdit" @removeNote="noteToRemove" @updateTodo="todoToUpdate" :notes='notes'/>
     </section>
     `,
     data() {
@@ -16,6 +16,12 @@ export default {
         }
     },
     methods: {
+        changeNoteColor(noteId, color) {
+            noteService.colorNote(noteId, color);
+        },
+        todoToUpdate(noteId, todoId) {
+            noteService.updateTodo(noteId, todoId);
+        },
         addNote(type, info) {
             noteService.createNote(type, info);
         },
