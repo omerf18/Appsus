@@ -9,7 +9,8 @@ export const emailService ={
     sendNewEmail,
     removeEmail,
     getEmailById,
-    getUnreadCount
+    getUnreadCount,
+    updateEmail
 }
 
  function getEmails(){
@@ -49,10 +50,10 @@ function _createEmail(name,subject,body,sentAt){
 }
 function _createEmails(){
     const emails = []
-    emails.push(_createEmail('Muki','Hello',utilService.makeLorem(10),utilService.getTime()))
-    emails.push(_createEmail('Puki','Hello',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Muki','Hello',utilService.makeLorem(20),utilService.getTime()))
+    emails.push(_createEmail('Puki','Hello',utilService.makeLorem(5),utilService.getTime()))
     emails.push(_createEmail('Yuki','Hello',utilService.makeLorem(10),utilService.getTime()))
-    emails.push(_createEmail('Tuki','Hello',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Tuki','Hello',utilService.makeLorem(15),utilService.getTime()))
     return emails;
 }
 function sendNewEmail(email){
@@ -61,7 +62,7 @@ function sendNewEmail(email){
     email.isRead = false;
     email.isSent = true
     email.isPeeked = false;
-    email.sentAt = getTime();
+    email.sentAt = utilService.getTime();
     gEmails.unshift(email)
     utilService.storeToStorage(EMAILS_DB,gEmails);
     return Promise.resolve(email);
@@ -71,12 +72,19 @@ function removeEmail(emailId){
     gEmails.splice(emailIdx, 1);
     utilService.storeToStorage(EMAILS_DB,gEmails);
 }
-
-
+function findIndexById(id){
+    return gEmails.findIndex((email) => email.id === id)
+    }
+function updateEmail(emailId,tag){
+    const idx =findIndexById(emailId)
+    gEmails[idx].tag = tag
+    console.log('emailUpdate');
+    utilService.storeToStorage(EMAILS_DB,gEmails)
+}
 
  function clearPeeked() {
     gEmails.forEach(mail => mail.isPeeked = false);
-   storeToStorage(EMAILS_DB, gEmails);
+   utilService.storeToStorage(EMAILS_DB, gEmails);
 }
 function getEmailById(emailId){
     console.log(emailId);

@@ -36,6 +36,7 @@ export default {
         setFilter(byName) {
             // if(byName = '') return
             this.filterByName = byName
+            
         },
         setReadFilterBy(value) {
             console.log(value);

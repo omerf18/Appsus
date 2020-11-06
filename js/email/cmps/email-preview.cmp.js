@@ -1,46 +1,58 @@
 import emailPeek from './email-peek.cmp.js'
+import longText from './long-text.cmp.js'
+import {utilService} from '../../services/util-service.js'
+import {eventBus} from '../../services/event-bus.js'
 
 export default {
-    props:['email'],
+    props: ['email'],
     template: `
-        <section @click="openEmailPeek" class="email-preview flex column  ">
-            <li class= "flex space-between align-center flex-grow btn">  
-            <i @click.prevent.stop="onStarClicked" class="fas fa-star mr-5 ml-5 " :class="starClass"></i>
-                <h3>{{email.name}}</h3>
-                <h4>{{email.subject}}</h4>
-                <small>{{email.body}}</small>
-                <p>{{email.sentAt}}</p>
+        <section  class="email-preview flex column"  :class="{read:email.isRead}">
+            <li class = "email-prev-container flex align-center flex-grow btn space-between" > 
+         
+                    <i class="star fas fa-star" @click="toggleStared" :class="{stared:email.isStared}"></i>
+              
+           
+                    <div class="email prev-content flex align-center flex-grow btn">
+                        <div class = "email-name">{{email.name}}</div>
+                        <div class ="email-subject">{{email.subject}}</div>
+                        <div class="email-body"><long-text :email="email" class ="flex row" ></long-text></div>
+                    </div>
+                        <div class="sent-at">{{email.sentAt}}</div>
             </li>
           
-           <email-peek v-if="email.isPeeked" :email="email"> </email-peek>
+           <email-peek v-if="email.isPeeked" :email="email"></email-peek>
         </section>
         
         
     `,
-    data(){
-        return{
-        
+    data() {
+        return {
+            
 
         }
 
 
     },
-    methods:{
-        openEmailPeek(){
+    methods: {
+        openEmailPeek() {
             this.email.isPeeked = !this.email.isPeeked
+        },
+        toggleStared() {
+            this.email.isStared =!this.email.isStared
+            eventBus.$emit('updateEmail',this.email.id,this.email.isStared)
         }
-        
+
     },
 
     computed: {
-      starClass(){
-          return{stared:(this.email.isStared)}
-      }
+        // isStared() {
+        //     return this.email.isStared;
+        // }
 
-     
     },
-    components:{
-        emailPeek
+    components: {
+        emailPeek,
+        longText
     }
 
 }
