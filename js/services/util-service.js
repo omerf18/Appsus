@@ -2,7 +2,8 @@ export const utilService = {
     storeToStorage,
     loadFromStorage,
     makeId,
-    getTime
+    getTime,
+    makeLorem
 }
 
 function storeToStorage(key, value) {
@@ -23,6 +24,18 @@ function makeId(length = 8) {
     return txt;
 }
 
-function getTime(){
-   return new Date().toLocaleTimeString()
+function getTime() {
+    return new Date().toLocaleTimeString()
+}
+
+
+
+function makeLorem(size = 10) {
+    var words = ['The sky', 'above', 'was', 'the color of television', 'tuned', 'to', '.', 'Where', 'Done', 'ten', 'Bro', 'Dennis', 'Omer', 'What was it', 'done like a pro', 'good bye friend', 'for now.', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn'];
+    var txt = '';
+    while (size > 0) {
+        size--;
+        txt += words[Math.floor(Math.random() * words.length)] + ' ';
+    }
+    return txt;
 }

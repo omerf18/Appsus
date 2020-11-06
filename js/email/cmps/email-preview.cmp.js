@@ -5,6 +5,7 @@ export default {
     template: `
         <section @click="openEmailPeek" class="email-preview flex column  ">
             <li class= "flex space-between align-center flex-grow btn">  
+            <i @click.prevent.stop="onStarClicked" class="fas fa-star mr-5 ml-5 " :class="starClass"></i>
                 <h3>{{email.name}}</h3>
                 <h4>{{email.subject}}</h4>
                 <small>{{email.body}}</small>
@@ -32,9 +33,10 @@ export default {
     },
 
     computed: {
-        getCurrency(){
-           return this.book.listPrice.currencyCode
-        }
+      starClass(){
+          return{stared:(this.email.isStared)}
+      }
+
      
     },
     components:{

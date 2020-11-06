@@ -21,3 +21,11 @@ padding: 20px;
 .peek-from{
     margin: 0;
 }
+.expand-email{
+    margin-left: 10px;
+}
+.remove-email{
+    background-color: rgba(255, 255, 255, 0);
+   border: none;
+   margin-right: 10px;
+}

@@ -1,4 +1,4 @@
-// import {utilService} from '../services/util-service.js'
+import {utilService} from '../../services/util-service.js'
 
 var gEmails;
 const EMAILS_DB = 'emailsDB'
@@ -13,10 +13,10 @@ export const emailService ={
 }
 
  function getEmails(){
-        gEmails = loadFromStorage(EMAILS_DB);
+        gEmails = utilService.loadFromStorage(EMAILS_DB);
         if (!gEmails || !gEmails.length){
             gEmails = _createEmails()
-            storeToStorage(EMAILS_DB,getEmails)
+            utilService.storeToStorage(EMAILS_DB,getEmails)
         } 
         return Promise.resolve(gEmails);
  }
@@ -33,7 +33,7 @@ export const emailService ={
 
 function _createEmail(name,subject,body,sentAt){
     const email = {
-        id : makeId(),
+        id : utilService.makeId(),
         name,
         subject,
         body,
@@ -42,56 +42,38 @@ function _createEmail(name,subject,body,sentAt){
         isRead: false,
         isPeeked: false,
         isStared: false,
+        isDraft:false,
         isSent: false
     }
     return email
 }
 function _createEmails(){
     const emails = []
-    emails.push(_createEmail('Muki','Hello','Hi my name is Muki',getTime()))
-    emails.push(_createEmail('Puki','Hello','Hi my name is Puki',getTime()))
-    emails.push(_createEmail('Yuki','Hello','Hi my name is Yuki',getTime()))
-    emails.push(_createEmail('Tuki','Hello','Hi my name is Tuki',getTime()))
+    emails.push(_createEmail('Muki','Hello',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Puki','Hello',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Yuki','Hello',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Tuki','Hello',utilService.makeLorem(10),utilService.getTime()))
     return emails;
 }
 function sendNewEmail(email){
-    email.id = makeId();
+    email.id = utilService.makeId();
     email.name ='Me';
     email.isRead = false;
     email.isSent = true
-    email.sentAt = getTime();
     email.isPeeked = false;
+    email.sentAt = getTime();
     gEmails.unshift(email)
-    storeToStorage(EMAILS_DB,gEmails);
+    utilService.storeToStorage(EMAILS_DB,gEmails);
     return Promise.resolve(email);
 }
 function removeEmail(emailId){
     const emailIdx = gEmails.findIndex(email => email.id === emailId);
     gEmails.splice(emailIdx, 1);
-    storeToStorage(EMAILS_DB,gEmails);
+    utilService.storeToStorage(EMAILS_DB,gEmails);
 }
 
 
-function storeToStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value) || null);
-}
 
-function loadFromStorage(key) {
-    let data = localStorage.getItem(key);
-    return (data) ? JSON.parse(data) : undefined;
-}
-
-function makeId(length = 8) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}
-function getTime(){
-    return new Date().toLocaleTimeString()
- }
  function clearPeeked() {
     gEmails.forEach(mail => mail.isPeeked = false);
    storeToStorage(EMAILS_DB, gEmails);

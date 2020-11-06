@@ -9,10 +9,10 @@ export default {
     <nav class="email-nav flex column" >
     
             <router-link to="/email/compose" class="compose-ctr"><img src="../../img/compose-plus.png"/> Compose</router-link>
-            <router-link class="folder-btn" @click="setEmailFilter('inbox')" to="/email"><div>Inbox<small>{{unReadEmailsCount}}</small></div></router-link>
-            <div class="folder-btn" to="/email" @click="setEmailFilter('sent')"><div >Sent Mail</div></div>
-            <div class="folder-btn" to="/email" @click="setEmailFilter('stared')"><div >Stared</div></div>
-            <div class="folder-btn" to="/email" @click="setEmailFilter('drafts')"><div >Drafts</div></div>
+            <router-link class="folder-btn" @click="setEmailFilter('inbox')" to="/email"><i class="icon fas fa-inbox"></i><span>Inbox<small>{{unReadEmailsCount}}</small></span></router-link>
+            <span class="folder-btn" to="/email" @click="setEmailFilter('sent')"><i class="icon fas fa-envelope"></i><span >Sent Mail</span></span>
+            <span class="folder-btn" to="/email" @click="setEmailFilter('stared')"><i class=" icon fas fa-star"></i><span >Stared</span></span>
+            <span class="folder-btn" to="/email" @click="setEmailFilter('drafts')"><i class=" icon fas fa-file"></i><span >Drafts</span></span>
     </nav>  
     `,
     data() {
