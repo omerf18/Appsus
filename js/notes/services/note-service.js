@@ -4,17 +4,27 @@ const NOTES_DB = 'notesDB'
 export const noteService = {
     createNote,
     getNotes,
-    editNote
+    editNote,
+    removeNote
 }
 
 var gNotes;
 
+function removeNote(noteId) {
+    // let note = _getNoteById(noteId)
+    // console.log('ths is itL', note);
+    const idx = gNotes.findIndex(note => note.id === noteId);
+    gNotes.splice(idx, 1);
+    utilService.storeToStorage(NOTES_DB, gNotes);
+    return Promise.resolve();
+}
+
 function editNote() {
-    utilService.storeToStorage(NOTES_DB,gNotes)
+    utilService.storeToStorage(NOTES_DB, gNotes)
 }
 
 function _getNoteById(id) {
-    let note =  gNotes.find(note => note.id === id)
+    let note = gNotes.find(note => note.id === id)
     return note;
 }
 
@@ -47,6 +57,7 @@ function getNotes() {
 function _createNotes() {
     return [
         {
+            id: utilService.makeId(),
             type: 'noteTxt',
             title: '',
             isPinned: true,
@@ -56,6 +67,7 @@ function _createNotes() {
             }
         },
         {
+            id: utilService.makeId(),
             type: 'noteImg',
             title: '',
             isPinned: true,
@@ -65,6 +77,7 @@ function _createNotes() {
             }
         },
         {
+            id: utilService.makeId(),
             type: 'noteTodos',
             title: '',
             isPinned: true,
@@ -80,6 +93,7 @@ function _createNotes() {
 
         },
         {
+            id: utilService.makeId(),
             type: 'noteVideo',
             title: '',
             isPinned: true,
