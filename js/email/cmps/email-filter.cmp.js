@@ -2,9 +2,9 @@
 export default {
     name: 'emailFilter',
     template: `
-    <section class="email-filter">
+    <section class="email-filter flex row justify-center align-center" >
       
-            <input type="text" placeholder="Search mail" v-model="byName" @keyup.enter.prevent="setNameFilter">
+            <input class="name-sort" type="text" placeholder="Search mail" v-model="byName" @keyup.enter.prevent="setNameFilter">
             <div class="read-sort">
                 <label for="all"> All <input type="radio" name ="filterRead" @change="setReadFilter" value="all" checked> </label>
                 <label for="read"> Read <input type="radio" name ="filterRead" @change="setReadFilter" value="read"> </label>

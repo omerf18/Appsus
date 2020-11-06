@@ -3,8 +3,7 @@ import {emailService} from '../services/email-service.js'
 export default {
     name: 'emailCompose',
     template: `
-    <section class="email-compose">
-    <form class ="email-compose-container flex column">
+    <section class="email-compose-container flex column">
             <div class ="header-compose"><p>New Message</p></div>
             <input type="email" id="to" placeholder ="To:" v-model ='emailToSend.to'>
             <input type="text" id="subject" placeholder ="Subject:"v-model ='emailToSend.subject'>
@@ -14,7 +13,6 @@ export default {
                  <button @click.prevent="backToEmail" >Discard</button>
             </div>
            
-        </form>
     </section> 
     `,
     data() {

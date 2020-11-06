@@ -1,6 +1,7 @@
 
 
 
+@import './cmps/email-filter.cmp.css';
 @import './cmps/email-preview.cmp.css';
 @import './cmps/email-list.cmp.css';
 @import './cmps/email-compose.cmp.css';

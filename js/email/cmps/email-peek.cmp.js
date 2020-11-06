@@ -14,26 +14,26 @@ export default {
                     </div>
                 </div>
                 <div class="peek-content">
-                    <p class="peek-from"> {{ email.name }} <small class= "from-email" >{{email.fromEmail}}</small></p>
+                    <p class="peek-from"> {{ email.name }} <small class= "from-email" ><{{email.fromEmail}}></small></p>
                     <p class="peek-body"> {{ email.body }} </p>
                 </div>
             </li>
     `,
     methods: {
-     
-     
+
+
     },
-    methods:{
-        removeEmail(){
+    methods: {
+        removeEmail() {
             const emailId = this.email.id;
-            utilService.removeEmail(emailId);
+            emailService.removeEmail(emailId);
         }
     },
     destroyed() {
-      
+
     },
     created() {
-        utilService.clearPeeked();
+        emailService.clearPeeked();
         this.email.isPeeked = true
     },
 }
