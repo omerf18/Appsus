@@ -1,6 +1,5 @@
 @import './cmps/notes-list.cmp.css';
 @import './cmps/notes-preview.cmp.css';
-
 .note-header {
     justify-content: center;
     align-items: center;
@@ -40,13 +39,13 @@
     text-decoration: underline;
     font-weight: 500;
     font-size: 1.05rem;
-    background-color:#ff7f5000;
+    background-color: #ff7f5000;
 }
 
 .note-txt {
     border: none;
     overflow: auto;
-    background-color:#ff7f5000;
+    background-color: #ff7f5000;
 }
 
 .note-img {
@@ -59,4 +58,28 @@
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.done .todo {
+    text-decoration: line-through;
+}
+
+.done-todo {
+    opacity: 0;
+}
+
+.done .done-todo {
+    opacity: 1;
+}
+
+.colorpick-container > * {
+    margin-right: 10px;
+}
+
+.note-bgc {
+    margin-top: 15px;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    border: 2px solid #004a7c;
 }
