@@ -10,7 +10,8 @@ export const emailService ={
     removeEmail,
     getEmailById,
     getUnreadCount,
-    updateEmail
+    updateStared,
+    updateDraft
 }
 
  function getEmails(){
@@ -61,8 +62,23 @@ function sendNewEmail(email){
     email.name ='Me';
     email.isRead = false;
     email.isSent = true
+    email.isStared = false
     email.isPeeked = false;
     email.sentAt = utilService.getTime();
+    email.isDraft = false
+    gEmails.unshift(email)
+    utilService.storeToStorage(EMAILS_DB,gEmails);
+    return Promise.resolve(email);
+}
+function updateDraft(email){
+    email.id = utilService.makeId();
+    email.name ='Me';
+    email.isRead = false;
+    email.isSent = false
+    email.isPeeked = false;
+    email.sentAt = utilService.getTime();
+    email.isDraft = true
+    email.isStared= false
     gEmails.unshift(email)
     utilService.storeToStorage(EMAILS_DB,gEmails);
     return Promise.resolve(email);
@@ -73,11 +89,13 @@ function removeEmail(emailId){
     utilService.storeToStorage(EMAILS_DB,gEmails);
 }
 function findIndexById(id){
+    console.log(id);
     return gEmails.findIndex((email) => email.id === id)
     }
-function updateEmail(emailId,tag){
-    const idx =findIndexById(emailId)
-    gEmails[idx].tag = tag
+function updateStared(emailId){
+    const idx = findIndexById(emailId)
+    gEmails[idx].isStared =!gEmails[idx].isStared
+    console.log(idx);
     console.log('emailUpdate');
     utilService.storeToStorage(EMAILS_DB,gEmails)
 }

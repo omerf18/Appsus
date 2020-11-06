@@ -10,7 +10,7 @@ export default {
             <textarea id="body" cols="20" rows="5" v-model ='emailToSend.body'></textarea>
             <div class= "email-compose-btn flex row space-between">
                  <button @click.prevent ="sendEmail">send</button>
-                 <button @click.prevent="backToEmail" >Discard</button>
+                 <button @click.prevent="backToEmail()" >Discard</button>
             </div>
            
     </section> 
@@ -29,11 +29,14 @@ export default {
     },
     methods:{
         sendEmail(){
+            if(!this.emailToSend.to||!this.emailToSend.subject||!this.emailToSend.body)return
             const newEmail = this.emailToSend
             emailService.sendNewEmail(newEmail)
             this.$router.push('/email');
         },
         backToEmail(){
+            const newDraft = this.emailToSend
+            emailService.updateDraft(newDraft)
             this.$router.push('/email');
         }
 

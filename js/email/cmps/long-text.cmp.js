@@ -6,7 +6,7 @@ export default {
     template: `
       <section>
         <p>{{textToShow}}</p>
-        <button v-if="email.body.length > 5" class=" btn show-more-btn" @click="isShowAll = !isShowAll" @click.prevent="openEmailPeek">{{buttonBody}}</button>
+        <button  class=" btn show-more-btn" @click="isShowAll = !isShowAll" @click.prevent="openEmailPeek">{{buttonBody}}</button>
       </section>
       `,
     data() {
