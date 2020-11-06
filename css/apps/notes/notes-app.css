@@ -1,8 +1,8 @@
 @import './cmps/notes-list.cmp.css';
 @import './cmps/notes-preview.cmp.css';
-.note-header {
-    justify-content: center;
-    align-items: center;
+
+.notes-header {
+    margin: 10px 0;
 }
 
 .note-input {
@@ -23,14 +23,14 @@
 }
 
 .note {
-    width: fit-content;
-    height: fit-content;
+    width: 250px;
     padding: 10px;
     line-height: 1.5;
     border-radius: 5px;
     border: 2px solid #004a7c;
     box-shadow: 1px 1px 1px #999;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .note-title {
@@ -49,14 +49,13 @@
 }
 
 .note-img {
-    height: auto;
-    width: 250px;
+    width: 100%;
     object-fit: contain;
 }
 
 .note-pin {
     position: absolute;
-    top: 5px;
+    top: -5px;
     right: 5px;
 }
 
@@ -72,7 +71,7 @@
     opacity: 1;
 }
 
-.colorpick-container > * {
+.colorpick-container>* {
     margin-right: 10px;
 }
 
