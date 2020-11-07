@@ -11,7 +11,7 @@ export default {
             <textarea class="flex-grow" id="body" cols="20" rows="5" v-model ='emailToSend.body'></textarea>
             <div class= "email-compose-btn flex row space-between">
                 <i @click ="sendEmail" class="far fa-paper-plane  send-icon"></i>
-                <i class="fas fa-trash-alt  discard-icon" @click.prevent ="removeEmail"></i>
+                <i class="fas fa-trash-alt  discard-icon" @click.prevent ="backToEmail"></i>
             </div>
            
     </section> 

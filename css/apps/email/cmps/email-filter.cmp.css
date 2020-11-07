@@ -1,7 +1,7 @@
 .email-filter{
     margin-top: 5px;
     padding: 10px;
-
+    
 }
 .email-filter>*{
     margin-left: 5px;
@@ -9,7 +9,7 @@
 .name-sort{
  
     height: 40px;
-    width: 500px;
+    width: 50%;
     padding: 5px;
     margin-inline-end: 5px;
     font-size: 1rem;
@@ -32,4 +32,14 @@
 .read-sort:hover{
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 
+}
+
+@media(max-width:850px){
+    .email-filter{
+        flex-direction: column;
+
+    }
+    .read-sort{
+        margin-top: 10px;
+    }
 }

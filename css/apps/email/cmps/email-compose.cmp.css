@@ -8,6 +8,7 @@
         0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
         display: flex;
         flex-grow: 1;
+        border-radius: 10px 10px 0 0;
 
     
 }
@@ -20,13 +21,14 @@
 
 
 .header-compose{
-   background-color: #1c2b2d;
+   background-color: #005691;
    color: antiquewhite;
    border-radius: 10px 10px 0 0;
 }
 
 
 .email-compose-btn{
+   color: #005691;
    margin: 6px;
    padding:5px 10px 10px 10px;
    font-size: 2em;
@@ -44,4 +46,11 @@
 .send-icon:hover{
    color: green
 
+}
+@media(max-width:850px){
+   .email-compose-container{
+     justify-content: center;
+     /* align-items: center; */
+     align-self: center;
+   }
 }
