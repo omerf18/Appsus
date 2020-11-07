@@ -86,6 +86,10 @@
     .email-body p{
         margin: 0;
         font-size: 0;
+        width: 0;
+    }
+    .email-body button{
+        font-size: 0.8rem;
     }
     .email-subject{
         font-size: 0.8rem;
