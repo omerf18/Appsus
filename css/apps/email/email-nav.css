@@ -28,7 +28,10 @@
 
 .folder-btn {
     border-radius: 0 20px 20px 0;
-    padding: 0 10px;
+    padding: 0 10px 0  0 ;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .folder-btn small {
@@ -38,7 +41,4 @@
 
 .folder-btn:hover {
     background-color: #e8edf0;
-}
-.folder-btn.active{
-    background-color: rgb(223, 117, 117);
 }

@@ -1,5 +1,5 @@
 .email-peek{
-   background-color: #ffffff;
+   background-color: #f8e5e5;
    border-radius: 0  0 10px 10px;
    padding: 10px;
 }
@@ -11,28 +11,24 @@
 .peek-from span {
     font-size: 0.7rem;
     margin-right: 2px;
-    color: rgb(141, 132, 132);
+    color: rgb(51, 49, 49);
 
 }
 
 .from-email{
-    color: #b8d31f;
+    color: #288dcc;
     margin-left: 20px;
    
 } 
 .peek-body{
 margin: 0;
-padding: 20px;
-color: #288dcc;
+padding-top: 20px;
+padding-bottom: 20px;
+color:black;
 }
 .peek-from{
     margin: 0;
 }
 .expand-email{
-    margin-left: 10px;
-}
-.remove-email{
-    background-color: rgba(255, 255, 255, 0);
-   border: none;
-   margin-right: 10px;
+ margin-right: 50px;
 }

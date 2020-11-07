@@ -26,7 +26,7 @@ export default {
             emails: null,
             currReadFilter: 'all',
             filterByName: '',
-            emailTypeToShow: 'inbox',
+            emailTypeToShow: 'Inbox',
         }
     },
     created() {
@@ -52,10 +52,10 @@ export default {
     computed: {
         emailsToShow() {
             let filteredEmails = this.emails;
-            if (this.emailTypeToShow === 'inbox') filteredEmails = this.emails
-            if (this.emailTypeToShow === 'stared') filteredEmails = filteredEmails.filter(email => email.isStared && !email.isDraft)
-            if (this.emailTypeToShow === 'sent') filteredEmails = filteredEmails.filter(email => email.isSent && !email.isDraft)
-            if (this.emailTypeToShow === 'draft') filteredEmails = filteredEmails.filter(email => email.isDraft)
+            if (this.emailTypeToShow === 'Inbox') filteredEmails = this.emails
+            if (this.emailTypeToShow === 'Stared') filteredEmails = filteredEmails.filter(email => email.isStared && !email.isDraft)
+            if (this.emailTypeToShow === 'Sent') filteredEmails = filteredEmails.filter(email => email.isSent && !email.isDraft)
+            if (this.emailTypeToShow === 'Draft') filteredEmails = filteredEmails.filter(email => email.isDraft)
             if (this.filterByName) filteredEmails = filteredEmails.filter(email =>
                 email.name.toLowerCase().includes(this.filterByName.toLowerCase()) ||
                 email.body.toLowerCase().includes(this.filterByName.toLowerCase()) ||
