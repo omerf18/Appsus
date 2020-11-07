@@ -1,5 +1,6 @@
 
 import { emailService } from '../services/email-service.js'
+import { eventBus } from '../../services/event-bus.js'
 export default {
     name: 'emailCompose',
     template: `
@@ -34,6 +35,7 @@ export default {
             console.log(newEmail);
             this.$router.push('/email');
             emailService.sendNewEmail(newEmail)
+            eventBus.$emit('show-msg',{txt:'Email sent' ,type:'Success'})
         },
         backToEmail() {
             const newDraft = this.emailToSend

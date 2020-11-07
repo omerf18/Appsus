@@ -1,8 +1,8 @@
 .email-preview {
     margin: 3px;
-    border-bottom: 1px solid rgb(199, 199, 199);
+    border-bottom: 1px solid rgb(218, 214, 214);
     border-radius: 0 0 10px 10px;
-    background-color: rgba(255, 255, 255, 0.902);
+    background-color: rgba(209, 199, 199, 0.267);
     width: 100%;
   
 }
@@ -18,9 +18,9 @@
 }
 
 .read {
-    background-color: rgba(233, 229, 229, 0.902);
+    background-color: rgba(209, 199, 199, 0.924);
     margin-left: 5px;
-    color: #93cdf1;
+    color: #4093c7;
 }
 
 .star:hover {
@@ -67,8 +67,6 @@
 
 .email-name {
     width: 40px;
-    /* height: 20px; */
-    /* font-size: 1rem; */
     text-align: center;
     margin-left: 20px;
     padding: 10px;

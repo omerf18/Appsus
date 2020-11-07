@@ -1,5 +1,21 @@
 .user-msg{
-    width: 200px;
-    height: 200px;
-    background-color: red;
+    position: fixed;
+  font-size: 1.3rem;
+  top: 20px;
+  left: 20px;
+
+  padding: 10px 30px;
+  border-radius: 30px;
+  border: none;
+}
+
+.user-msg.success{
+    color:blue;
+    background-color: rgb(147, 197, 245);
+    box-shadow: inset 0 0 10px 5px rgb(145,192,235),0 0 10px 5px;
+    border: none;
+}
+.error{
+    color:red;
+    box-shadow: inset 0 0 10px 5px rgb(145,192,235),0 0 3px 1px red;
 }
