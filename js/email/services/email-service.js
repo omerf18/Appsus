@@ -11,7 +11,8 @@ export const emailService ={
     getEmailById,
     getUnreadCount,
     updateStared,
-    updateDraft
+    updateDraft,
+    updateRead
 }
 
  function getEmails(){
@@ -95,6 +96,13 @@ function findIndexById(id){
 function updateStared(emailId){
     const idx = findIndexById(emailId)
     gEmails[idx].isStared =!gEmails[idx].isStared
+    console.log(idx);
+    console.log('emailUpdate');
+    utilService.storeToStorage(EMAILS_DB,gEmails)
+}
+function updateRead(emailId){
+    const idx = findIndexById(emailId)
+    gEmails[idx].isRead =!gEmails[idx].isRead
     console.log(idx);
     console.log('emailUpdate');
     utilService.storeToStorage(EMAILS_DB,gEmails)

@@ -7,10 +7,10 @@ export default {
             <div class ="header-compose"><p>New Message</p></div>
             <input type="email" id="to" placeholder ="To:" v-model ='emailToSend.to'>
             <input type="text" id="subject" placeholder ="Subject:"v-model ='emailToSend.subject'>
-            <textarea id="body" cols="20" rows="5" v-model ='emailToSend.body'></textarea>
+            <textarea class="flex-grow" id="body" cols="20" rows="5" v-model ='emailToSend.body'></textarea>
             <div class= "email-compose-btn flex row space-between">
-                 <button @click ="sendEmail">send</button>
-                 <button @click ="backToEmail()" >Discard</button>
+                <i @click ="sendEmail" class="far fa-paper-plane  send-icon"></i>
+                <i class="fas fa-trash-alt  discard-icon" @click.prevent ="removeEmail"></i>
             </div>
            
     </section> 

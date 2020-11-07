@@ -1,13 +1,19 @@
 .email-peek{
-   background-color: #b2dffb;
+   background-color: #ffffff;
    border-radius: 0  0 10px 10px;
    padding: 10px;
 }
 .peek-header{
     width: 100%;
-    display: inline-flex
+    display: inline-flex;
+    color: #288dcc;
 }
+.peek-from span {
+    font-size: 0.7rem;
+    margin-right: 2px;
+    color: rgb(141, 132, 132);
 
+}
 
 .from-email{
     color: #b8d31f;
@@ -17,6 +23,7 @@
 .peek-body{
 margin: 0;
 padding: 20px;
+color: #288dcc;
 }
 .peek-from{
     margin: 0;

@@ -14,7 +14,7 @@ export default {
         <email-filter @nameFilter="setFilter" @getReadFilter="setReadFilterBy"></email-filter>
         <div class="email-app-main-content flex row space-between">
             <email-nav @emailFilter="setEmailTypeToShow"></email-nav>
-            <router-view  :emails ="emailsToShow"></router-view>
+            <router-view :emails ="emailsToShow"></router-view>
         </div>
     </section> 
     `,
@@ -34,14 +34,11 @@ export default {
     },
     methods: {
         setFilter(byName) {
-            // if(byName = '') return
             this.filterByName = byName
-
         },
         setReadFilterBy(value) {
             console.log(value);
             this.currReadFilter = value
-
         },
         setEmailTypeToShow(emailType) {
             this.filterByName = '';
