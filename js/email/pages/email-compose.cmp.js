@@ -1,5 +1,5 @@
 
-import {emailService} from '../services/email-service.js'
+import { emailService } from '../services/email-service.js'
 export default {
     name: 'emailCompose',
     template: `
@@ -9,17 +9,17 @@ export default {
             <input type="text" id="subject" placeholder ="Subject:"v-model ='emailToSend.subject'>
             <textarea id="body" cols="20" rows="5" v-model ='emailToSend.body'></textarea>
             <div class= "email-compose-btn flex row space-between">
-                 <button @click.prevent ="sendEmail">send</button>
-                 <button @click.prevent="backToEmail()" >Discard</button>
+                 <button @click ="sendEmail">send</button>
+                 <button @click ="backToEmail()" >Discard</button>
             </div>
            
     </section> 
     `,
     data() {
         return {
-            emailToSend:{
+            emailToSend: {
                 fromEmail: 'Dennis-Omer@gmail.com',
-                to:'',
+                to: '',
                 subject: '',
                 body: ''
             }
@@ -27,17 +27,18 @@ export default {
         }
 
     },
-    methods:{
-        sendEmail(){
-            if(!this.emailToSend.to||!this.emailToSend.subject||!this.emailToSend.body)return
+    methods: {
+        sendEmail() {
+            if (!this.emailToSend.to || !this.emailToSend.subject || !this.emailToSend.body) return
             const newEmail = this.emailToSend
+            console.log(newEmail);
+            this.$router.push('/email');
             emailService.sendNewEmail(newEmail)
-            this.$router.push('/email');
         },
-        backToEmail(){
+        backToEmail() {
             const newDraft = this.emailToSend
-            emailService.updateDraft(newDraft)
             this.$router.push('/email');
+            emailService.updateDraft(newDraft)
         }
 
 

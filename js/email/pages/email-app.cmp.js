@@ -14,7 +14,7 @@ export default {
         <email-filter @nameFilter="setFilter" @getReadFilter="setReadFilterBy"></email-filter>
         <div class="email-app-main-content flex row space-between">
             <email-nav @emailFilter="setEmailTypeToShow"></email-nav>
-            <router-view :emails ="emailsToShow"></router-view>
+            <router-view  :emails ="emailsToShow"></router-view>
         </div>
     </section> 
     `,
@@ -52,10 +52,9 @@ export default {
     computed: {
         emailsToShow() {
             let filteredEmails = this.emails;
-
             if (this.emailTypeToShow === 'inbox') filteredEmails = this.emails
-            if (this.emailTypeToShow === 'stared') filteredEmails = filteredEmails.filter(email => email.isStared)
-            if (this.emailTypeToShow === 'sent' ) filteredEmails = filteredEmails.filter(email => email.isSent && !email.isDraft)
+            if (this.emailTypeToShow === 'stared') filteredEmails = filteredEmails.filter(email => email.isStared && !email.isDraft)
+            if (this.emailTypeToShow === 'sent') filteredEmails = filteredEmails.filter(email => email.isSent && !email.isDraft)
             if (this.emailTypeToShow === 'draft') filteredEmails = filteredEmails.filter(email => email.isDraft)
             if (this.filterByName) filteredEmails = filteredEmails.filter(email =>
                 email.name.toLowerCase().includes(this.filterByName.toLowerCase()) ||
