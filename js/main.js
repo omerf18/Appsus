@@ -1,6 +1,7 @@
 import { myRouter } from './routes.js';
 import susAppHeader from './cmps/sus-app-header.cmp.js';
 import susAppFooter from './cmps/sus-app-footer.cmp.js';
+import home from './pages/home.js'
 import userMsg from './cmps/user-msg.cmp.js'
 import {eventBus} from './services/event-bus.js'
 
@@ -20,7 +21,8 @@ const options = {
         susAppHeader,
         susAppFooter,
         userMsg,
-        eventBus
+        eventBus,
+        home
     }
 }
 

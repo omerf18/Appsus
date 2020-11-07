@@ -2,8 +2,6 @@
 @import '../css/apps/notes/notes-app.css';
 @import './helpers.css';
 @import './apps/user-msg.css';
-@import './about-page.css';
-
 * {
     box-sizing: border-box;
 }
@@ -38,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px;
 }
 
+.logo-horse {
+    width: 60px;
+}
+
 .container {
     width: 90vw;
     margin: 0 auto;
@@ -46,7 +48,6 @@ h1, h2, h3, h4, h5, h6 {
 /* main-container  */
 
 .main-container {
-    margin: 0 auto;
     margin: 0 auto;
     flex: 1;
 }
@@ -64,18 +65,24 @@ h1, h2, h3, h4, h5, h6 {
 
 ul {
     text-decoration: none;
-    list-style:none;
-    padding:0;
-    margin:0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
     text-decoration: none;
-    list-style:none;
-    padding:0;
-    margin:0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 textarea {
     resize: none;
+}
+
+.main-layout {
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
