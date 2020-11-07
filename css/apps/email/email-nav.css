@@ -72,3 +72,22 @@
     }
     
 }
+@media(max-width:650px){
+    .folder-btn{
+        flex-direction: column;
+       
+    }
+    .email-nav{
+        justify-content: center;
+    }
+    .compose-ctr{
+        font-size: 0;
+    }
+    .email-body p{
+        margin: 0;
+        font-size: 0;
+    }
+    .email-subject{
+        font-size: 0.8rem;
+    }
+}
