@@ -2,6 +2,7 @@
 @import '../css/apps/notes/notes-app.css';
 @import './helpers.css';
 @import './apps/user-msg.css';
+@import './home-page.css';
 * {
     box-sizing: border-box;
 }
@@ -34,6 +35,10 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #005691;
     color: #fafafa;
     padding: 15px;
+}
+.logo-horse{
+    width: 60px;
+    
 }
 
 .container {
@@ -76,4 +81,10 @@ li {
 
 textarea {
     resize: none;
+}
+.main-layout{
+    background-image: url("../img/background.png") ;
+    background-repeat: no-repeat;
+    background-size: cover; 
+
 }
