@@ -3,7 +3,7 @@ export default {
     name: 'note-video',
     template: `
     <section>
-            <iframe id="ytplayer" type="text/html" width="100" height="100"
+            <iframe id="ytplayer" width="100" height="100"
             :src="note.info"
             frameborder="0"></iframe>
             <div id="ytplayer"></div>

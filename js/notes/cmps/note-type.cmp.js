@@ -30,6 +30,7 @@ export default {
     methods: {
         newNote() {
             this.$emit('createNewNote', this.noteType, this.noteInput);
+            this.noteInput = null;
         },
         selectNote() {
             if (this.noteType === 'noteTxt') this.placeholderVal = 'Whats on your mind..?';

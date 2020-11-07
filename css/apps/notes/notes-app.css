@@ -1,6 +1,5 @@
 @import './cmps/notes-list.cmp.css';
 @import './cmps/notes-preview.cmp.css';
-
 .notes-header {
     margin: 10px 0;
 }
@@ -71,7 +70,7 @@
     opacity: 1;
 }
 
-.colorpick-container>* {
+.colorpick-container > *{
     margin-right: 10px;
 }
 
@@ -81,4 +80,13 @@
     width: 20px;
     border-radius: 20px;
     border: 2px solid #004a7c;
+    opacity: 0;
+}
+
+.note-bgc.colorpick{
+    opacity: 1;
+}
+
+.note.pinned {
+    border-color:gold;
 }

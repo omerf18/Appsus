@@ -72,3 +72,7 @@ li {
     padding:0;
     margin:0;
 }
+
+textarea {
+    resize: none;
+}
