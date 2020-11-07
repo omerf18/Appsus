@@ -2,6 +2,8 @@
 @import '../css/apps/notes/notes-app.css';
 @import './helpers.css';
 @import './apps/user-msg.css';
+@import './about-page.css';
+
 * {
     box-sizing: border-box;
 }
