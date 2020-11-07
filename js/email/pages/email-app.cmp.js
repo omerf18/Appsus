@@ -4,6 +4,8 @@ import emailList from '../cmps/email-list.cmp.js'
 import emailCompose from './email-compose.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailNav from '../cmps/email-nav.cmp.js'
+import userMsgCmp from '../../cmps/user-msg.cmp.js'
+import userMsg from '../../cmps/user-msg.cmp.js'
 
 
 
@@ -12,6 +14,7 @@ export default {
     template: `
     <section class="email-app flex column space-between align-center">
         <email-filter @nameFilter="setFilter" @getReadFilter="setReadFilterBy"></email-filter>
+        <h3>{{emailTypeToShow}}</h3>
         <div class="email-app-main-content flex row space-between">
             <email-nav @emailFilter="setEmailTypeToShow"></email-nav>
             <router-view :emails ="emailsToShow"></router-view>
@@ -72,7 +75,8 @@ export default {
         emailList,
         emailCompose,
         emailFilter,
-        emailNav
+        emailNav,
+        userMsg
 
     }
 

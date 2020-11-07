@@ -9,7 +9,10 @@ export default {
 
     template: `
     <section class="emails-list flex-grow">
-            <ul >
+            <ul>
+                <h1 class="no-emails" v-if ='emails.length === 0'>
+                    NO EMAILS TO SHOW
+                </h1>
                    <email-preview  v-for="email in emails" :key="emails.id"  :email="email"/>
             </ul>
     </section> 

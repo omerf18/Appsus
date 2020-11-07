@@ -57,6 +57,7 @@ export default {
         removeEmail() {
             const emailId = this.email.id;
             emailService.removeEmail(emailId);
+            eventBus.$emit('show-msg',{txt:'Email removed successfully',type:'error'})
         },
     },
 

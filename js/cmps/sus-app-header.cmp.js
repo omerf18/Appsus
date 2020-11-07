@@ -7,6 +7,7 @@ export default {
                 <router-link to="/" exact >Home</router-link>
                 <router-link to="/email" exact >Email</router-link>
                 <router-link to="/notes" exact >Notes</router-link>
+                <router-link to="/about" exact >about</router-link>
             </nav>
 </div>
     </section> 

@@ -6,3 +6,9 @@ max-width: 100%;
     list-style: none;
     padding: 0;
 }
+.no-emails{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 3rem;
+    background-color: #b2dffb;
+}
