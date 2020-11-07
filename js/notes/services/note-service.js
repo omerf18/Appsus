@@ -1,4 +1,6 @@
-import { utilService } from '../../services/util-service.js'
+import { utilService } from '../../services/util-service.js';
+import { eventBus } from '../../services/event-bus.js';
+
 const NOTES_DB = 'notesDB'
 
 export const noteService = {
@@ -23,6 +25,7 @@ function pinNote(noteId) {
         gNotes.splice(idx, 1);
         gNotes.unshift(pinnedNote);
     } else note.isPinned = false;
+    eventBus.$emit('show-msg',{txt:'Note pinned' ,type:'Success'})
     utilService.storeToStorage(NOTES_DB, gNotes);
     return Promise.resolve(gNotes);
 }
@@ -33,6 +36,7 @@ function updateTodo(noteId, todoId) {
     if (todo.isDone === false) {
         todo.isDone = true;
         todo.doneAt = _getTodoDoneAt();
+        eventBus.$emit('show-msg',{txt:'Done todo!' ,type:'Success'})
     }
     else {
         todo.isDone = false;
@@ -50,6 +54,7 @@ function _getTodoDoneAt() {
 function removeNote(noteId) {
     const idx = gNotes.findIndex(note => note.id === noteId);
     gNotes.splice(idx, 1);
+    eventBus.$emit('show-msg',{txt:'Note removed' ,type:'Success'})
     utilService.storeToStorage(NOTES_DB, gNotes);
     return Promise.resolve(gNotes);
 }
@@ -71,6 +76,7 @@ function _getNoteById(id) {
 
 function addNewNote(note) {
     gNotes.unshift(note);
+    eventBus.$emit('show-msg',{txt:'New note has been added!' ,type:'Success'})
     utilService.storeToStorage(NOTES_DB, gNotes);
     return Promise.resolve(gNotes);
 }
@@ -95,7 +101,6 @@ function colorNote(noteId, color) {
     note.color = color;
     utilService.storeToStorage(NOTES_DB, gNotes);
     return Promise.resolve(gNotes);
-
 }
 
 function _createTodos(str) {
