@@ -1,4 +1,5 @@
 import home from './pages/home.js';
+import about from './pages/about.js';
 import email from './email/pages/email-app.cmp.js';
 import note from './notes/pages/notes-app.cmp.js';
 import emailCompose from './email/pages/email-compose.cmp.js'
@@ -33,6 +34,10 @@ const myRoutes = [
     {
         path: '/notes',
         component: note
+    },
+    {
+        path:'/about',
+        component:about
     }
 ];
 
