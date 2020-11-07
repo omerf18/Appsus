@@ -38,7 +38,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .logo-horse{
     width: 60px;
+    margin-right: 6px;
     
+}
+.logo-link{
+    color: blanchedalmond;
+    text-decoration: none;
+}
+.pages-link>*{
+    /* height: 100%; */
+    margin-left: 20px;
+    color: blanchedalmond;
+    text-decoration: none;
+   
+}
+.pages-link>*:hover{
+    color: black;
 }
 
 .container {
