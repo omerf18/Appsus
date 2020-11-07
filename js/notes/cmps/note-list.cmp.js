@@ -15,12 +15,12 @@ export default {
                 <div class="flex space-between">
                     <div class="colorpick-container flex">
                         <i class="fas fa-brush icon" @click="pickColor(note.id)"></i>
-                        <div class="flex colorpick-container">
-                            <div class="note-bgc bgc0 btn" :class="{colorpick: note.isColorpicker}" @click="changeBgc(note.id,'#fafafa')"></div>    
-                            <div class="note-bgc bgc1 btn" :class="{colorpick: note.isColorpicker}" @click="changeBgc(note.id,'#9df3c4')"></div>
-                            <div class="note-bgc bgc2 btn" :class="{colorpick: note.isColorpicker}" @click="changeBgc(note.id,'#b2dffb')"></div>
-                            <div class="note-bgc bgc3 btn" :class="{colorpick: note.isColorpicker}" @click="changeBgc(note.id,'#e7a4e4')"></div>
-                            <div class="note-bgc bgc4 btn" :class="{colorpick: note.isColorpicker}" @click="changeBgc(note.id,'#ffc55c')"></div>
+                        <div class="flex bgc-btns-container" :class="{colorpick: note.isColorpicker}">
+                            <div class="note-bgc bgc0 btn" @click="changeBgc(note.id,'#fafafa')"></div>    
+                            <div class="note-bgc bgc1 btn" @click="changeBgc(note.id,'#9df3c4')"></div>
+                            <div class="note-bgc bgc2 btn" @click="changeBgc(note.id,'#b2dffb')"></div>
+                            <div class="note-bgc bgc3 btn" @click="changeBgc(note.id,'#e7a4e4')"></div>
+                            <div class="note-bgc bgc4 btn" @click="changeBgc(note.id,'#ffc55c')"></div>
                         </div>
                 </div>
                 <i class="fas fa-trash-alt icon" @click="noteToRemove(note.id)"></i>
@@ -60,3 +60,6 @@ export default {
         noteVideo
     }
 }
+
+
+

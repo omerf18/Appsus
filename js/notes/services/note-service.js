@@ -132,14 +132,14 @@ function _createNotes() {
             type: 'noteTxt',
             title: '',
             isPinned: false,
-            info: 'text',
+            info: 'If debugging is the process of removing software bugs, then programming must be the process of putting them in.',
             color: '',
             isColorpicker: false
         },
         {
             id: utilService.makeId(),
             type: 'noteImg',
-            title: '',
+            title: 'My dog!',
             isPinned: false,
             info: 'https://i.guim.co.uk/img/media/20098ae982d6b3ba4d70ede3ef9b8f79ab1205ce/0_0_969_581/master/969.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=a368f449b1cc1f37412c07a1bd901fb5',
             color: '',
@@ -148,11 +148,13 @@ function _createNotes() {
         {
             id: utilService.makeId(),
             type: 'noteTodos',
-            title: '',
+            title: 'Shopping list',
             isPinned: false,
             info: [
-                { id: utilService.makeId(), txt: "Do that", doneAt: null, isDone: false },
-                { id: utilService.makeId(), txt: "Do this", doneAt: null, isDone: false }
+                { id: utilService.makeId(), txt: "Milk", doneAt: null, isDone: false },
+                { id: utilService.makeId(), txt: "Tomatos", doneAt: null, isDone: false },
+                { id: utilService.makeId(), txt: "Pancakes", doneAt: null, isDone: true },
+                { id: utilService.makeId(), txt: "PS5", doneAt: null, isDone: false },
             ],
             color: '',
             isColorpicker: false
@@ -162,12 +164,40 @@ function _createNotes() {
             type: 'noteVideo',
             title: '',
             isPinned: false,
-            info: 'https://www.youtube.com/embed/5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa',
+            info: 'https://www.youtube.com/embed/f-Wypwi9UBc',
             color: '',
             isColorpicker: false
-        }
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteImg',
+            title: 'Good times with the gang!',
+            isPinned: false,
+            info: 'https://images.unsplash.com/photo-1513309914637-65c20a5962e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+            color: '',
+            isColorpicker: false
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteTodos',
+            title: 'My todos!',
+            isPinned: false,
+            info: [
+                { id: utilService.makeId(), txt: "Call Dennis", doneAt: null, isDone: false },
+                { id: utilService.makeId(), txt: "Learn CSS", doneAt: null, isDone: true },
+                { id: utilService.makeId(), txt: "Watch Vue tutorial", doneAt: null, isDone: false },
+            ],
+            color: '',
+            isColorpicker: false
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteTxt',
+            title: '',
+            isPinned: false,
+            info: 'The trouble with programmers is that you can never tell what a programmer is doing until its too late.',
+            color: '',
+            isColorpicker: false
+        },
     ];
 }
-
-
-const youtubeApi = 'AIzaSyBoLtEChz15MVeSaLwOi2dGrKfyVlBZkp0';

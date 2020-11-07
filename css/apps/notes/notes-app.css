@@ -70,8 +70,9 @@
     opacity: 1;
 }
 
-.colorpick-container > *{
-    margin-right: 10px;
+.bgc-btns-container{
+    opacity: 0;
+    transition: 0.3s ease;
 }
 
 .note-bgc {
@@ -80,10 +81,10 @@
     width: 20px;
     border-radius: 20px;
     border: 2px solid #004a7c;
-    opacity: 0;
+    margin-left: 10px;
 }
 
-.note-bgc.colorpick{
+.colorpick{
     opacity: 1;
 }
 
@@ -101,4 +102,16 @@ textarea:focus {
 
 ::placeholder {
     color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .notes-header {
+        flex-direction: column;
+    }
+    form {
+        text-align: center;
+    }
+    .icon {
+        font-size: 23px !important;
+    }
 }
