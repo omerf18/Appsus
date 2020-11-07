@@ -121,7 +121,8 @@ function getNotes() {
 }
 
 function _createYouTubeEmbedLink(link) {
-    return link.replace('http://www.youtube.com/watch?v=', 'http://www.youtube.com/embed/');
+    console.log(link, link.includes('http://www.youtube.com/watch?v='));
+    return link.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/');
 }
 
 function _createNotes() {
@@ -161,7 +162,7 @@ function _createNotes() {
             type: 'noteVideo',
             title: '',
             isPinned: false,
-            info: 'https://www.youtube.com/watch?v=hOVDNS0IvHc',
+            info: 'https://www.youtube.com/embed/5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa',
             color: '',
             isColorpicker: false
         }

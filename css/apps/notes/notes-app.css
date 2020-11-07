@@ -90,3 +90,15 @@
 .note.pinned {
     border-color:gold;
 }
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: black;
+}
