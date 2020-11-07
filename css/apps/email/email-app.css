@@ -12,5 +12,17 @@
 
 .email-app-main-content{
     width: 100%;
+    display: flex;
+ 
 
+}
+
+
+
+@media(max-width:850px){
+    .email-app-main-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

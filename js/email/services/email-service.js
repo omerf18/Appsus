@@ -53,12 +53,12 @@ function _createEmail(name,subject,body,sentAt){
 function _createEmails(){
     const emails = []
     emails.push(_createEmail('Muki','Hello',utilService.makeLorem(20),utilService.getTime()))
-    emails.push(_createEmail('Puki','THE TRIP',utilService.makeLorem(5),utilService.getTime()))
-    emails.push(_createEmail('Yaron','AMAZING',utilService.makeLorem(10),utilService.getTime()))
+    emails.push(_createEmail('Puki','THE trip',utilService.makeLorem(5),utilService.getTime()))
+    emails.push(_createEmail('Yaron','Amazing!',utilService.makeLorem(10),utilService.getTime()))
     emails.push(_createEmail('Asaf','How are you?',utilService.makeLorem(20),utilService.getTime()))
     emails.push(_createEmail('Omer','Want to meet you',utilService.makeLorem(18),utilService.getTime()))
     emails.push(_createEmail('Coding Academy','Hello',utilService.makeLorem(30),utilService.getTime()))
-    emails.push(_createEmail('SPORT5','FOOTBALL FANTASY',utilService.makeLorem(40),utilService.getTime()))
+    emails.push(_createEmail('SPORT5','Football Fantasy',utilService.makeLorem(40),utilService.getTime()))
     emails.push(_createEmail('Dennis','Hello',utilService.makeLorem(33),utilService.getTime()))
     emails.push(_createEmail('Ben','Crime Minister',utilService.makeLorem(22),utilService.getTime()))
     emails.push(_createEmail('Dor','Meeting',utilService.makeLorem(27),utilService.getTime()))

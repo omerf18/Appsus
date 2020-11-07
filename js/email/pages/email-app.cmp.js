@@ -15,7 +15,7 @@ export default {
     <section class="email-app flex column space-between align-center">
         <email-filter @nameFilter="setFilter" @getReadFilter="setReadFilterBy"></email-filter>
         <h3>{{emailTypeToShow}}</h3>
-        <div class="email-app-main-content flex row space-between">
+        <div class="email-app-main-content flex">
             <email-nav @emailFilter="setEmailTypeToShow"></email-nav>
             <router-view :emails ="emailsToShow"></router-view>
         </div>
