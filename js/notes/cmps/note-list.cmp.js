@@ -7,7 +7,7 @@ export default {
     name: 'noteList',
     props: ['notes'],
     template: `
-        <section class="flex wrap space-between">
+        <section class="flex wrap space-evenly">
         <div v-for="note in notes" :key="note.id">
             <div class="note flex column space-between" :class="{pinned: note.isPinned}" :style="{ 'background-color': note.color }">
                 <input class="note-title btn" type="text" placeholder="My note" @change="edit" v-model="note.title" maxlength="18">
