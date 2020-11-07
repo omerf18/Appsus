@@ -1,26 +1,57 @@
-
-.title{
+.title {
     text-align: center;
     margin-top: 100px;
     font-size: 3rem;
     color: #fff2f2b6;
 }
-.enter-apps{
+
+.enter-apps>* {
+    color: #004a7c;
+    padding: 50px;
+    font-size: 8rem;
+    border-radius: 50%;
+    text-decoration: none;
 }
-.enter-apps>*{
-   color: #004a7c;
-   padding: 50px; 
-   font-size: 8rem;
-   border-radius: 50%;
-   text-decoration: none;
-}
-.enter-email{
-    /* background-color: #fff; */
-}
-.enter-apps>*:hover{
+
+.enter-apps>*:hover {
     color: #004a7cc9;
 }
-.enter-apps span{
-    font-size: 2rem; ;
+
+.enter-apps span {
+    font-size: 2rem;
+    ;
     text-decoration: none;
+}
+
+.phone-nav-btn {
+    display: none;
+    position: relative;
+    transform: rotate(90deg);
+}
+
+.phone-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    right: 0;
+    background-color: #005691;
+}
+
+.phone-nav-item {
+    padding: 10px;
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .nav {
+        display: none;
+    }
+    .phone-nav-btn {
+        align-self: center;
+        display: block;
+    }
+    .phone-nav-show {
+        display: flex;
+    }
 }

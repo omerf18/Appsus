@@ -7,8 +7,14 @@
 
 .about {
     color: #fafafa;
+    font-size: 1.5rem;
 }
 
 .about-container {
     height: 80vh;
+}
+
+.about-icon {
+    font-size: 4rem;
+    color: #004a7c;
 }

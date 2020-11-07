@@ -3,6 +3,7 @@
 @import './helpers.css';
 @import './apps/user-msg.css';
 @import './home-page.css';
+@import './about-page.css';
 * {
     box-sizing: border-box;
 }
@@ -103,3 +104,4 @@ textarea {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
