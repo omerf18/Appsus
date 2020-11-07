@@ -9,16 +9,15 @@ export default {
     <nav class="email-nav flex column" >
     
             <router-link to="/email/compose" class="compose-ctr mr-5"><img src="../../img/compose-plus.png"/> Compose</router-link>
-            <router-link class="folder-btn" @click="setEmailFilter('inbox')" to="/email"><i class="icon fas fa-inbox mr-5"></i><span>Inbox<small>{{unReadEmailsCount}}</small></span></router-link>
-            <a class="folder-btn" to="/email" @click="setEmailFilter('sent')"><i class="icon fas fa-envelope mr-5"></i><span >Sent Mail</span></a>
-            <a class="folder-btn" to="/email" @click="setEmailFilter('stared')"><i class=" icon fas fa-star mr-5"></i><span >Stared</span></a>
-            <a class="folder-btn" to="/email" @click="setEmailFilter('drafts')"><i class=" icon fas fa-file mr-5"></i><span >Drafts</span></a>
+            <a class="folder-btn" @click="setEmailFilter('inbox')" :class="{active : isActive}"><i class="icon fas fa-inbox mr-5"></i><span>Inbox<small>({{unReadEmailsCount}})</small></span></a>
+            <a class="folder-btn"@click="setEmailFilter('sent')" :class="{active : isActive}"><i class="icon fas fa-envelope mr-5"></i><span >Sent Mail</span></a>
+            <a class="folder-btn" @click="setEmailFilter('stared')" :class="{active : isActive}"><i class=" icon fas fa-star mr-5"></i><span >Stared</span></a>
+            <a class="folder-btn" @click="setEmailFilter('draft')" :class="{active : isActive}"><i class=" icon fas fa-file mr-5"></i><span >Drafts</span></a>
     </nav>  
     `,
     data() {
         return {
-
-
+            isActive: false
 
         }
 
@@ -32,13 +31,11 @@ export default {
     },
     methods:{
         setEmailFilter(emailType){
+           if(emailType) this.isActive = !this.isActive
+            console.log(emailType);
             this.$emit('emailFilter', emailType)
+            this.$router.push('/email');
         }
     }
-    // created() {
-
-    // }
-    // components: {
-
-    // }
+   
 }

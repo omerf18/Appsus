@@ -3,7 +3,8 @@ export const utilService = {
     loadFromStorage,
     makeId,
     getTime,
-    makeLorem
+    makeLorem,
+    getRandomColor
 }
 
 function storeToStorage(key, value) {
@@ -28,8 +29,6 @@ function getTime() {
     return new Date().toLocaleTimeString()
 }
 
-
-
 function makeLorem(size = 10) {
     var words = ['The sky', 'above', 'was', 'the color of television', 'tuned', 'to', '.', 'Where', 'Done', 'ten', 'Bro', 'Dennis', 'Omer', 'What was it', 'done like a pro', 'good bye friend', 'for now.', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn'];
     var txt = '';
@@ -39,3 +38,12 @@ function makeLorem(size = 10) {
     }
     return txt;
 }
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return Promise.resolve(color)
+  }
+  

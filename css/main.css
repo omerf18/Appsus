@@ -1,6 +1,7 @@
 @import '../css/apps/email/email-app.css';
 @import '../css/apps/notes/notes-app.css';
 @import './helpers.css';
+@import './apps/user-msg.css';
 * {
     box-sizing: border-box;
 }

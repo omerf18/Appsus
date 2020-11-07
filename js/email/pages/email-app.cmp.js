@@ -34,16 +34,13 @@ export default {
     },
     methods: {
         setFilter(byName) {
-            // if(byName = '') return
             this.filterByName = byName
-            
         },
         setReadFilterBy(value) {
             console.log(value);
             this.currReadFilter = value
-
         },
-        setEmailTypeToShow(emailType){
+        setEmailTypeToShow(emailType) {
             this.filterByName = '';
             this.currReadFilter = 'all';
             this.emailTypeToShow = emailType
@@ -52,6 +49,10 @@ export default {
     computed: {
         emailsToShow() {
             let filteredEmails = this.emails;
+            if (this.emailTypeToShow === 'inbox') filteredEmails = this.emails
+            if (this.emailTypeToShow === 'stared') filteredEmails = filteredEmails.filter(email => email.isStared && !email.isDraft)
+            if (this.emailTypeToShow === 'sent') filteredEmails = filteredEmails.filter(email => email.isSent && !email.isDraft)
+            if (this.emailTypeToShow === 'draft') filteredEmails = filteredEmails.filter(email => email.isDraft)
             if (this.filterByName) filteredEmails = filteredEmails.filter(email =>
                 email.name.toLowerCase().includes(this.filterByName.toLowerCase()) ||
                 email.body.toLowerCase().includes(this.filterByName.toLowerCase()) ||
@@ -62,11 +63,8 @@ export default {
                     else return !email.isRead
                 })
             }
-            
-            else if(this.emailTypeToShow === 'inbox') filteredEmails =this.emails
-            else if(this.emailTypeToShow === 'starred') filteredEmails =filteredEmails.filter(email => email.isStarred)
-            else if(this.emailTypeToShow === 'sent') filteredEmails = filteredEmails.filter(email => email.isSent)
-            console.log(filteredEmails);
+            console.log('filter', filteredEmails);
+            this.$router.push('/email');
             return filteredEmails;
         }
     },

@@ -1,37 +1,44 @@
-
-
-
-.email-nav{
-flex-direction: column;
-margin-right: 50px;
+.email-nav {
+    flex-direction: column;
+    margin-right: 50px;
 }
 
-
-.email-nav>*{
+.email-nav>* {
     margin-bottom: 5px;
     text-decoration: none;
     color: rgb(29, 28, 28);
     cursor: pointer;
-
 }
 
-.compose-ctr{
-    display:flex;
+.compose-ctr {
+    display: flex;
     text-decoration: none;
-     align-items: center; 
-     color: rgb(29, 28, 28);
-     border-radius: 20px;
-     border: 1px solid rgb(29, 28, 28); 
-     padding: 0 10px; 
-     margin-bottom: 10px;
+    align-items: center;
+    color: rgb(29, 28, 28);
+    border-radius: 20px;
+    border: 1px solid rgb(29, 28, 28);
+    padding: 0 10px;
+    margin-bottom: 10px;
 }
-.compose-ctr:hover{
-    background-color: #b2dffb;
+
+.compose-ctr:hover {
+    background-color: #e8edf0;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
-.folder-btn{
-    border-radius: 0 20px  20px 0 ;
-    padding: 0 10px; 
+
+.folder-btn {
+    border-radius: 0 20px 20px 0;
+    padding: 0 10px;
 }
-.folder-btn:hover{
-    background-color: #b2dffb;
+
+.folder-btn small {
+    margin-left: 3px;
+    color: grey;
+}
+
+.folder-btn:hover {
+    background-color: #e8edf0;
+}
+.folder-btn.active{
+    background-color: rgb(223, 117, 117);
 }
